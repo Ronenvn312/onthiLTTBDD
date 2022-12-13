@@ -1,12 +1,19 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import Home from './screens/Home';
+import UpLoadScreen from './src/UpLoadScreen';
 
+const Stack = createNativeStackNavigator();
 export default function App() {
+  // new CloudinaryImage("cld-sample.jpg");
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='root_navigator' screenOptions={{headerShown: false}}>
+        <Stack.Screen name='Home' component={UpLoadScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
